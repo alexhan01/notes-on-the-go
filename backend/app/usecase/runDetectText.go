@@ -50,7 +50,10 @@ func rekognition(string location) {
 	//svc := rekognition.New(mySession)
 
 	svc := rekognition.New(mySession, aws.NewConfig().WithRegion("us-east-1"))
+	img := svc.DetectText(existingImageFile)
 
-	return svc.DetectText(existingImageFile) // idk how to write the error handling or do the rest
+	// idk how to write the error handling or do the rest
+
+	return img
 
 }
