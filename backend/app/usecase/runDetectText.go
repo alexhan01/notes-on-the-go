@@ -1,5 +1,12 @@
 package usecase
 
+import (
+	"os"
+
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/aws/session"
+)
+
 // import (
 // 	entity/rawimage
 // 	"fmt"
@@ -17,7 +24,6 @@ func HandleLambdaEvent(event RawImage) (string, error) {
 // RunDetectText invokes lambda function to run DetectText with AWS Rekognition
 func runDetectText() {
 	lambda.Start(HandleLambdaEvent)
-	
 
 }
 
@@ -37,9 +43,14 @@ func rekognition(string location) {
 	}
 	defer existingImageFile.Close()
 
-	//do the acutal shit
-	rekognition := new AWS.Rekognition()
-	return rekognition.DetectText(existingImageFile)// idk how to write the error handling in go
+	// create new rekognition client
 
+	mySession := session.Must(session.NewSession())
+	// Create a Rekognition client from just a session.
+	//svc := rekognition.New(mySession)
+
+	svc := rekognition.New(mySession, aws.NewConfig().WithRegion("us-east-1"))
+
+	return svc.DetectText(existingImageFile) // idk how to write the error handling or do the rest
 
 }
