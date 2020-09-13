@@ -1,5 +1,6 @@
 package usecase
 
+<<<<<<< HEAD
 import (
 	"os"
 
@@ -7,23 +8,33 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 )
 
+=======
+>>>>>>> master
 // import (
 // 	entity/rawimage
 // 	"fmt"
 // 	"context"
 // 	"github.com/aws/aws-lambda-go/lambda"
+<<<<<<< HEAD
 //	"os"
 // 	import "github.com/aws/aws-sdk-go/service/rekognition"
+=======
+>>>>>>> master
 // )
 
 // HandleLambdaEvent takes RawImage, runs AWS Rekog store it temp in S3 bucket and return S3 bucket address in String
 func HandleLambdaEvent(event RawImage) (string, error) {
+<<<<<<< HEAD
 	retrieveFront(RawImage)
+=======
+	//stub
+>>>>>>> master
 }
 
 // RunDetectText invokes lambda function to run DetectText with AWS Rekognition
 func runDetectText() {
 	lambda.Start(HandleLambdaEvent)
+<<<<<<< HEAD
 
 }
 
@@ -56,4 +67,6 @@ func rekognition(string location) {
 
 	return img
 
+=======
+>>>>>>> master
 }
