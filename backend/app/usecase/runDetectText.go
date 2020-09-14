@@ -2,7 +2,7 @@ package usecase
 
 import (
 	"os"
-
+	entity/rawimage
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 )
@@ -24,7 +24,6 @@ func HandleLambdaEvent(event RawImage) (string, error) {
 // RunDetectText invokes lambda function to run DetectText with AWS Rekognition
 func runDetectText() {
 	lambda.Start(HandleLambdaEvent)
-
 }
 
 // helper function to retrieve image from dummy file
