@@ -3,8 +3,9 @@ package extractText
 import (
 	"encoding/json"
 	"fmt"
-	entity/ExtractedText
-	data/test.json
+	"github.com/alexhan01/notes-on-the-go/backend/app/entity"
+	// entity/ExtractedText
+	"github.com/alexhan01/notes-on-the-go/data/"
 )
 
 func extractText() {
