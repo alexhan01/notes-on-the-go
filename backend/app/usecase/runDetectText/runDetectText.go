@@ -1,8 +1,8 @@
-package usecase
+package runDetectText
 
 import (
 	"os"
-	entity/rawimage
+	./backend/entity/rawimage
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 )
@@ -18,6 +18,7 @@ import (
 
 // HandleLambdaEvent takes RawImage, runs AWS Rekog store it temp in S3 bucket and return S3 bucket address in String
 func HandleLambdaEvent(event RawImage) (string, error) {
+	//initialize raw image
 	retrieveFront(RawImage)
 }
 
