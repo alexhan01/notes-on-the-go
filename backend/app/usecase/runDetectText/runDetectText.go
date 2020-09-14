@@ -2,7 +2,11 @@ package runDetectText
 
 import (
 	"os"
+<<<<<<< HEAD:backend/app/usecase/runDetectText.go
+
+=======
 	./backend/entity/rawimage
+>>>>>>> f4509e1de3f1361bffbe7d0ddd0bc0780ab5129c:backend/app/usecase/runDetectText/runDetectText.go
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 )
