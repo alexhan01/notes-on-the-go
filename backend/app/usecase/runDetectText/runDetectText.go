@@ -1,4 +1,4 @@
-package usecase
+package runDetectText
 
 import (
 	"os"
@@ -25,7 +25,6 @@ func HandleLambdaEvent(event RawImage) (string, error) {
 // RunDetectText invokes lambda function to run DetectText with AWS Rekognition
 func runDetectText() {
 	lambda.Start(HandleLambdaEvent)
-
 }
 
 // helper function to retrieve image from dummy file
