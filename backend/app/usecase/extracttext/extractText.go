@@ -7,6 +7,14 @@ import (
 	"os"
 )
 
+// ExtractedText represents the raw extracted json file in golang form
+type ExtractedText struct {
+	// Temporary struct variables
+	Name      string `json:"Name"`
+	Capital   string `json:"Capital"`
+	Continent string `json:"Continent"`
+}
+
 func extractText(str string) {
 	// Initializing local var
 	var text ExtractedText
