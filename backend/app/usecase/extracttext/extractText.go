@@ -15,7 +15,7 @@ type ExtractedText struct {
 	Continent string `json:"Continent"`
 }
 
-func extractText(str string) {
+func extractText(str string) string {
 	// Initializing local var
 	var text ExtractedText
 	filePath := str
@@ -34,6 +34,11 @@ func extractText(str string) {
 	json.Unmarshal([]byte(byteValue), &text)
 
 	// Print details of decoded data
-	fmt.Println("Struct is:", text)
-	fmt.Printf("%s's capital is %s and it is in %s. \n", text.Name, text.Capital, text.Continent)
+	// var n string = text.Name
+	// var cap string = text.Capital
+	var cont string = text.Continent
+
+	return cont
+	// fmt.Printf("Struct is: %s", text.Name)
+	// fmt.Printf("%s's capital is %s and it is in %s. \n", text.Name, text.Capital, text.Continent)
 }
