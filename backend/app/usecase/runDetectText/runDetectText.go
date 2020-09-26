@@ -1,17 +1,14 @@
 package runDetectText
 
 import (
+	"context"
 	"os"
 
+	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/lambda"
+	//"github.com/aws/aws-sdk-go/service/lambda"
 )
-
-import "github.com/alexhan01/notes-on-the-go/backend/app/entity"
-import "github.com/aws/aws-lambda-go/lambda"
-
-
 
 // import (
 // 	entity/rawimage
@@ -22,12 +19,14 @@ import "github.com/aws/aws-lambda-go/lambda"
 // 	import "github.com/aws/aws-sdk-go/service/rekognition"
 // )
 
-
+type RawImage struct {
+	//stub;
+	Location string
+}
 
 // HandleLambdaEvent takes RawImage, runs AWS Rekog store it temp in S3 bucket and return S3 bucket address in String
-func HandleLambdaEvent(event RawImage) (string, error) {
-
-	return retrieveFront(RawImage)
+func HandleLambdaEvent(ctx context.Context, rawimage RawImage) (string, error) {
+	return retrieveFront(rawimage), nil
 }
 
 // RunDetectText invokes lambda function to run DetectText with AWS Rekognition
@@ -36,13 +35,13 @@ func runDetectText() {
 }
 
 // helper function to retrieve image from dummy file
-func retrieveFront(event RawImage) {
-	location := RawImage.location
+func retrieveFront(RawImage RawImage) string {
+	location := RawImage.Location
 	return rekognition(location)
 }
 
 //passes image into rekognition()
-func rekognition(string location) {
+func rekognition(location string) string {
 
 	// Read image from file that already exists
 	existingImageFile, err := os.Open(location)
@@ -57,7 +56,7 @@ func rekognition(string location) {
 	// Create a Rekognition client from just a session.
 	//svc := rekognition.New(mySession)
 
-	svc := rekognition.New(mySession, aws.NewConfig().WithRegion("us-east-1"))
+	svc := rekognition.new(mySession, aws.NewConfig().WithRegion("us-east-1"))
 	img := svc.DetectText(existingImageFile)
 
 	// idk how to write the error handling or do the rest
