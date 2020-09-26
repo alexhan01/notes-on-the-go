@@ -1,4 +1,4 @@
-package extractText
+package extracttext
 
 import (
 	"testing"
