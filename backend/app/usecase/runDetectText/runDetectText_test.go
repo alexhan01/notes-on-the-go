@@ -4,6 +4,7 @@ import (
 	"testing"
 )
 
-func TestRunDetectText(t *testing.T) {
-	//stub;
+func TestRunDetectText (t *testing.T) {
+	
 }
+

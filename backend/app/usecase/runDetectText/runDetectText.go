@@ -5,7 +5,13 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
+	"github.com/aws/aws-sdk-go/service/lambda"
 )
+
+import "github.com/alexhan01/notes-on-the-go/backend/app/entity"
+import "github.com/aws/aws-lambda-go/lambda"
+
+
 
 // import (
 // 	entity/rawimage
@@ -16,10 +22,12 @@ import (
 // 	import "github.com/aws/aws-sdk-go/service/rekognition"
 // )
 
+
+
 // HandleLambdaEvent takes RawImage, runs AWS Rekog store it temp in S3 bucket and return S3 bucket address in String
 func HandleLambdaEvent(event RawImage) (string, error) {
-	//initialize raw image
-	retrieveFront(RawImage)
+
+	return retrieveFront(RawImage)
 }
 
 // RunDetectText invokes lambda function to run DetectText with AWS Rekognition
@@ -28,9 +36,9 @@ func runDetectText() {
 }
 
 // helper function to retrieve image from dummy file
-func retrieveFront() {
+func retrieveFront(event RawImage) {
 	location := RawImage.location
-	rekognition(location)
+	return rekognition(location)
 }
 
 //passes image into rekognition()
